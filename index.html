@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
   <title>Typing Test</title>
 </head>
 <body>
@@ -16,28 +20,5 @@
     <textarea id="typedText" oninput="checkText()"></textarea>
   </div>
   <h3 id="result"></h3>
-  <script>
-    let inputText;
-    let typedText;
-
-    function startTest() {
-      inputText = document.getElementById("inputText").value;
-    //   document.getElementById("textToType").textContent = inputText;
-      document.getElementById("testContainer").style.display = 'block';
-      document.getElementById("typedText").value = '';
-      document.getElementById("result").textContent = '';
-    }
-
-    function checkText() {
-      typedText = document.getElementById("typedText").value;
-      if (typedText === inputText) {
-        document.getElementById("result").textContent = 'Correct!';
-      } else if (inputText.indexOf(typedText) !== 0) {
-        document.getElementById("result").textContent = 'Incorrect!';
-      } else {
-        document.getElementById("result").textContent = '';
-      }
-    }
-  </script>
 </body>
 </html>
