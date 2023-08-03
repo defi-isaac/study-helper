@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typing Test</title>
+</head>
+<body>
+  <h1>Typing Test</h1>
+  <div>
+    <label for="inputText">Enter text:</label><br>
+    <input type="text" id="inputText" name="inputText" required><br>
+    <button onclick="startTest()">Start Test</button><br>
+  </div>
+  <div id="testContainer" style="display: none;">
+    <h2>Type the following text:</h2>
+    <p id="textToType"></p>
+    <textarea id="typedText" oninput="checkText()"></textarea>
+  </div>
+  <h3 id="result"></h3>
+  <script>
+    let inputText;
+    let typedText;
+
+    function startTest() {
+      inputText = document.getElementById("inputText").value;
+    //   document.getElementById("textToType").textContent = inputText;
+      document.getElementById("testContainer").style.display = 'block';
+      document.getElementById("typedText").value = '';
+      document.getElementById("result").textContent = '';
+    }
+
+    function checkText() {
+      typedText = document.getElementById("typedText").value;
+      if (typedText === inputText) {
+        document.getElementById("result").textContent = 'Correct!';
+      } else if (inputText.indexOf(typedText) !== 0) {
+        document.getElementById("result").textContent = 'Incorrect!';
+      } else {
+        document.getElementById("result").textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
